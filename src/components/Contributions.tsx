@@ -2,9 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export const Contributions: React.FC = () => {
   const [loading, setLoading] = useState(true);
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     // Simulating the loading of contributions
@@ -16,25 +18,25 @@ export const Contributions: React.FC = () => {
   }, []);
 
   return (
-    <section className="section" id="contributions">
+    <section className="section py-6" id="contributions">
       <div className="container-custom">
-        <h2 className="text-3xl font-bold mb-10 text-center">GitHub Contributions</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center">GitHub Contributions</h2>
         
         <Card>
-          <CardContent className="p-6">
+          <CardContent className="p-4">
             {loading ? (
-              <Skeleton className="w-full h-32 md:h-40" />
+              <Skeleton className="w-full h-24 md:h-32" />
             ) : (
               <div className="flex flex-col items-center">
                 <img
                   src={`https://github-readme-stats.vercel.app/api?username=jiteshy&theme=react&hide_border=true&include_all_commits=true&count_private=true&show_icons=true`}
                   alt="GitHub Stats"
-                  className="w-full max-w-2xl mb-6"
+                  className="w-full max-w-xl mb-4"
                 />
                 <img
                   src={`https://github-readme-streak-stats.herokuapp.com/?user=jiteshy&theme=react&hide_border=true`}
                   alt="GitHub Streak"
-                  className="w-full max-w-2xl"
+                  className="w-full max-w-xl"
                 />
               </div>
             )}

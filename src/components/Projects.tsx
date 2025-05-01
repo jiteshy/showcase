@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Github, Link } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface Project {
   name: string;
@@ -11,6 +12,7 @@ interface Project {
 }
 
 export const Projects: React.FC = () => {
+  const isMobile = useIsMobile();
   const projects: Project[] = [
     {
       name: "CollabX",
@@ -25,26 +27,26 @@ export const Projects: React.FC = () => {
   ];
 
   return (
-    <section className="section bg-secondary/30" id="projects">
+    <section className="section bg-secondary/30 py-6" id="projects">
       <div className="container-custom">
-        <h2 className="text-3xl font-bold mb-10 text-center">Open Source Projects</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center">Open Source Projects</h2>
         
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           {projects.map((project, index) => (
             <Card key={index} className="card-hover">
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <Github className="w-5 h-5 mr-2" />
+              <CardHeader className="pb-2">
+                <CardTitle className="flex items-center text-lg">
+                  <Github className="w-4 h-4 mr-2" />
                   {project.name}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base">
+              <CardContent className="pb-2">
+                <CardDescription className={`${isMobile ? 'text-sm' : 'text-base'}`}>
                   {project.description}
                 </CardDescription>
               </CardContent>
               <CardFooter>
-                <Button asChild variant="outline">
+                <Button asChild variant="outline" size="sm">
                   <a 
                     href={project.url} 
                     target="_blank" 
