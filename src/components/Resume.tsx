@@ -11,24 +11,24 @@ export const Resume: React.FC = () => {
   
   return (
     <section className="h-full flex flex-col">
-      <div className="container-custom h-full flex flex-col">
-        <div className="flex justify-end mb-2">
-          <Button asChild variant="ghost" size="icon">
+      <div className="container-custom h-full p-0">
+        <div className={`w-full ${isMobile ? 'h-[500px]' : 'h-[calc(100vh-56px)]'} relative`}>
+          <iframe
+            src={resumeUrl}
+            title="Resume"
+            className="w-full h-full"
+            allow="autoplay"
+          />
+          <Button 
+            asChild 
+            variant="ghost" 
+            size="icon"
+            className="absolute top-2 right-2 bg-white/80 hover:bg-white"
+          >
             <a href={downloadUrl} target="_blank" rel="noopener noreferrer" title="Download Resume">
               <Download className="w-4 h-4" />
             </a>
           </Button>
-        </div>
-        
-        <div className="w-full flex-grow flex justify-center">
-          <div className={`w-full max-w-3xl ${isMobile ? 'h-[500px]' : 'h-[calc(100vh-150px)]'} border border-border rounded-lg overflow-hidden shadow-md bg-white`}>
-            <iframe
-              src={resumeUrl}
-              title="Resume"
-              className="w-full h-full"
-              allow="autoplay"
-            />
-          </div>
         </div>
       </div>
     </section>

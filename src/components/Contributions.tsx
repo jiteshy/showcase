@@ -27,16 +27,16 @@ export const Contributions: React.FC = () => {
             {loading ? (
               <Skeleton className="w-full h-24" />
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <img
-                  src={`https://github-readme-stats.vercel.app/api?username=jiteshy&theme=react&hide_border=true&include_all_commits=true&count_private=true&show_icons=true`}
-                  alt="GitHub Stats"
-                  className="w-full"
-                />
-                <img
-                  src={`https://github-readme-streak-stats.herokuapp.com/?user=jiteshy&theme=react&hide_border=true`}
-                  alt="GitHub Streak"
-                  className="w-full"
+              <div className="flex justify-center w-full">
+                <iframe 
+                  src="https://pages.codeadam.ca/github-contributions/jiteshy" 
+                  width="100%" 
+                  height="190" 
+                  frameBorder="0" 
+                  allowTransparency 
+                  id="iframe"
+                  title="GitHub Contributions"
+                  className="max-w-full"
                 />
               </div>
             )}
