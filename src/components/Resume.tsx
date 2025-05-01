@@ -10,22 +10,18 @@ export const Resume: React.FC = () => {
   const downloadUrl = "https://drive.google.com/uc?export=download&id=13OPNZITL5pTvHgU7NItZJWt1pb_2Mcxa";
   
   return (
-    <section className="section" id="resume">
-      <div className="container-custom">
-        <div className="mb-4 text-center">
-          <h2 className="text-2xl font-bold mb-3">Resume</h2>
-          <div className="flex justify-center mb-4">
-            <Button asChild variant="outline" className="mr-4">
-              <a href={downloadUrl} target="_blank" rel="noopener noreferrer">
-                <Download className="w-4 h-4 mr-2" />
-                Download Resume
-              </a>
-            </Button>
-          </div>
+    <section className="h-full flex flex-col">
+      <div className="container-custom h-full flex flex-col">
+        <div className="flex justify-end mb-2">
+          <Button asChild variant="ghost" size="icon">
+            <a href={downloadUrl} target="_blank" rel="noopener noreferrer" title="Download Resume">
+              <Download className="w-4 h-4" />
+            </a>
+          </Button>
         </div>
         
-        <div className="w-full flex justify-center">
-          <div className={`w-full max-w-3xl ${isMobile ? 'h-[500px]' : 'h-[700px]'} border border-border rounded-lg overflow-hidden shadow-md bg-white`}>
+        <div className="w-full flex-grow flex justify-center">
+          <div className={`w-full max-w-3xl ${isMobile ? 'h-[500px]' : 'h-[calc(100vh-150px)]'} border border-border rounded-lg overflow-hidden shadow-md bg-white`}>
             <iframe
               src={resumeUrl}
               title="Resume"

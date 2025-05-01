@@ -18,25 +18,25 @@ export const Contributions: React.FC = () => {
   }, []);
 
   return (
-    <section className="section py-6" id="contributions">
+    <section className="section py-4" id="contributions">
       <div className="container-custom">
-        <h2 className="text-2xl font-bold mb-4 text-center">GitHub Contributions</h2>
+        <h2 className="text-xl font-bold mb-4">GitHub Contributions</h2>
         
         <Card>
           <CardContent className="p-4">
             {loading ? (
-              <Skeleton className="w-full h-24 md:h-32" />
+              <Skeleton className="w-full h-24" />
             ) : (
-              <div className="flex flex-col items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <img
                   src={`https://github-readme-stats.vercel.app/api?username=jiteshy&theme=react&hide_border=true&include_all_commits=true&count_private=true&show_icons=true`}
                   alt="GitHub Stats"
-                  className="w-full max-w-xl mb-4"
+                  className="w-full"
                 />
                 <img
                   src={`https://github-readme-streak-stats.herokuapp.com/?user=jiteshy&theme=react&hide_border=true`}
                   alt="GitHub Streak"
-                  className="w-full max-w-xl"
+                  className="w-full"
                 />
               </div>
             )}

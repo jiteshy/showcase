@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Footer } from './Footer';
-import { Header } from './Header';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 interface LayoutProps {
@@ -13,7 +12,6 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-grow flex flex-col lg:flex-row">
         {children}
       </main>
