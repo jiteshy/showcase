@@ -8,15 +8,14 @@ export const Resume: React.FC = () => {
   
   return (
     <section className="h-full flex flex-col">
-      <div className="container-custom h-full p-0">
-        <div className={`w-full ${isMobile ? 'h-[500px]' : 'h-[calc(100vh-56px)]'}`}>
+      <div className="h-full">
+        <div className={`w-full ${isMobile ? 'h-[500px]' : 'h-screen'}`}>
           <iframe
             src={resumeUrl}
             title="Resume"
             className="w-full h-full"
             style={{ 
-              scrollbarColor: 'auto transparent',
-              scrollbarWidth: 'thin'
+              scrollbarWidth: 'none' // Makes scrollbar transparent
             }}
             allow="autoplay"
           />

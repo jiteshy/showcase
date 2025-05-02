@@ -28,13 +28,13 @@ const Index: React.FC = () => {
 
   return (
     <Layout>
-      {/* Left Column - Resume */}
-      <div className="w-full lg:w-2/5 lg:h-screen lg:overflow-hidden">
+      {/* Left Column - Resume - Now 1/2 instead of 2/5 */}
+      <div className="w-full lg:w-1/2 lg:h-screen lg:overflow-hidden">
         <Resume />
       </div>
       
-      {/* Right Column - Other content */}
-      <div className="w-full lg:w-3/5 lg:h-screen">
+      {/* Right Column - Other content - Now 1/2 instead of 3/5 */}
+      <div className="w-full lg:w-1/2 lg:h-screen">
         <ScrollArea className="h-full">
           <div className="p-2">
             <Projects />

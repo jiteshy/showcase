@@ -43,7 +43,7 @@ export const MediumPosts: React.FC = () => {
       <section className="section py-3">
         <div className="container-custom">
           <h2 className="text-lg font-bold mb-2">Recent Articles</h2>
-          <div className="grid gap-3">
+          <div className="grid gap-3 md:grid-cols-2">
             <Skeleton className="w-full h-20" />
             <Skeleton className="w-full h-20" />
           </div>
@@ -57,7 +57,7 @@ export const MediumPosts: React.FC = () => {
       <div className="container-custom">
         <h2 className="text-lg font-bold mb-2">Recent Articles</h2>
         
-        <div className="grid gap-3">
+        <div className="grid md:grid-cols-2 gap-3">
           {posts.map((post, index) => (
             <Card key={index} className="card-hover">
               <CardHeader className="pb-1 pr-8 relative">
