@@ -7,7 +7,7 @@ export const Resume: React.FC = () => {
   const resumeUrl = "https://drive.google.com/file/d/13OPNZITL5pTvHgU7NItZJWt1pb_2Mcxa/preview";
   
   return (
-    <section className="h-full flex flex-col">
+    <section className="h-full">
       <div className="h-full">
         <div className={`w-full ${isMobile ? 'h-[500px]' : 'h-screen'}`}>
           <iframe
@@ -15,7 +15,8 @@ export const Resume: React.FC = () => {
             title="Resume"
             className="w-full h-full"
             style={{ 
-              scrollbarWidth: 'none' // Makes scrollbar transparent
+              scrollbarWidth: 'none', // Makes scrollbar transparent
+              msOverflowStyle: 'none' // For IE and Edge
             }}
             allow="autoplay"
           />

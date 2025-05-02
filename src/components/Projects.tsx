@@ -26,28 +26,28 @@ export const Projects: React.FC = () => {
   ];
 
   return (
-    <section className="section py-3" id="projects">
+    <section className="section py-2" id="projects">
       <div className="container-custom">
         <h2 className="text-lg font-bold mb-2">Open Source Projects</h2>
         
-        <div className="grid md:grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-2">
           {projects.map((project, index) => (
             <Card key={index} className="card-hover">
-              <CardHeader className="pb-1 pr-8 relative">
-                <CardTitle className="text-base">
+              <CardHeader className="pb-1 pr-8 relative pt-3 px-3">
+                <CardTitle className="text-sm">
                   {project.name}
                 </CardTitle>
                 <a 
                   href={project.url} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
+                  className="absolute top-3 right-3 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <ExternalLink className="w-4 h-4" />
                 </a>
               </CardHeader>
-              <CardContent className="pb-3">
-                <CardDescription className={`${isMobile ? 'text-xs' : 'text-sm'} line-clamp-2`}>
+              <CardContent className="pb-2 pt-0 px-3">
+                <CardDescription className="text-xs line-clamp-2">
                   {project.description}
                 </CardDescription>
               </CardContent>

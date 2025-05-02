@@ -18,12 +18,12 @@ export const Contributions: React.FC = () => {
   }, []);
 
   return (
-    <section className="section py-3" id="contributions">
+    <section className="section py-2" id="contributions">
       <div className="container-custom">
         <h2 className="text-lg font-bold mb-2">GitHub Contributions</h2>
         
         <Card>
-          <CardContent className="p-3">
+          <CardContent className="p-2">
             {loading ? (
               <Skeleton className="w-full h-24" />
             ) : (
