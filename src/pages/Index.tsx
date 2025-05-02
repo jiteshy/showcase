@@ -29,14 +29,14 @@ const Index: React.FC = () => {
   return (
     <Layout>
       {/* Left Column - Resume */}
-      <div className="w-full lg:w-2/5 lg:h-[calc(100vh-56px)] lg:overflow-hidden lg:border-r border-border">
+      <div className="w-full lg:w-2/5 lg:h-screen lg:overflow-hidden">
         <Resume />
       </div>
       
       {/* Right Column - Other content */}
-      <div className="w-full lg:w-3/5 lg:h-[calc(100vh-56px)] lg:overflow-auto">
+      <div className="w-full lg:w-3/5 lg:h-screen">
         <ScrollArea className="h-full">
-          <div className="p-4">
+          <div className="p-2">
             <Projects />
             <Contributions />
             <MediumPosts />

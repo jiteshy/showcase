@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Footer } from './Footer';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 interface LayoutProps {
@@ -15,7 +14,6 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main className="flex-grow flex flex-col lg:flex-row">
         {children}
       </main>
-      <Footer />
     </div>
   );
 };

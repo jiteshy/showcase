@@ -1,8 +1,7 @@
 
 import React from 'react';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Github, Link } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ExternalLink } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 interface Project {
@@ -27,37 +26,31 @@ export const Projects: React.FC = () => {
   ];
 
   return (
-    <section className="section bg-secondary/30 py-6" id="projects">
+    <section className="section py-3" id="projects">
       <div className="container-custom">
-        <h2 className="text-2xl font-bold mb-4 text-center">Open Source Projects</h2>
+        <h2 className="text-lg font-bold mb-2">Open Source Projects</h2>
         
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-3">
           {projects.map((project, index) => (
             <Card key={index} className="card-hover">
-              <CardHeader className="pb-2">
-                <CardTitle className="flex items-center text-lg">
-                  <Github className="w-4 h-4 mr-2" />
+              <CardHeader className="pb-1 pr-8 relative">
+                <CardTitle className="text-base">
                   {project.name}
                 </CardTitle>
+                <a 
+                  href={project.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                </a>
               </CardHeader>
-              <CardContent className="pb-2">
-                <CardDescription className={`${isMobile ? 'text-sm' : 'text-base'}`}>
+              <CardContent className="pb-3">
+                <CardDescription className={`${isMobile ? 'text-xs' : 'text-sm'} line-clamp-2`}>
                   {project.description}
                 </CardDescription>
               </CardContent>
-              <CardFooter>
-                <Button asChild variant="outline" size="sm">
-                  <a 
-                    href={project.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center"
-                  >
-                    <Link className="w-4 h-4 mr-2" />
-                    View Project
-                  </a>
-                </Button>
-              </CardFooter>
             </Card>
           ))}
         </div>

@@ -1,8 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Link } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ExternalLink } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 
 interface MediumPost {
@@ -41,12 +40,12 @@ export const MediumPosts: React.FC = () => {
 
   if (loading) {
     return (
-      <section className="section py-4">
+      <section className="section py-3">
         <div className="container-custom">
-          <h2 className="text-xl font-bold mb-4">Recent Articles</h2>
-          <div className="grid gap-4">
-            <Skeleton className="w-full h-32" />
-            <Skeleton className="w-full h-32" />
+          <h2 className="text-lg font-bold mb-2">Recent Articles</h2>
+          <div className="grid gap-3">
+            <Skeleton className="w-full h-20" />
+            <Skeleton className="w-full h-20" />
           </div>
         </div>
       </section>
@@ -54,33 +53,28 @@ export const MediumPosts: React.FC = () => {
   }
 
   return (
-    <section className="section py-4">
+    <section className="section py-3">
       <div className="container-custom">
-        <h2 className="text-xl font-bold mb-4">Recent Articles</h2>
+        <h2 className="text-lg font-bold mb-2">Recent Articles</h2>
         
-        <div className="grid gap-4">
+        <div className="grid gap-3">
           {posts.map((post, index) => (
             <Card key={index} className="card-hover">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-lg">{post.title}</CardTitle>
-                <CardDescription>{new Date(post.pubDate).toLocaleDateString()}</CardDescription>
+              <CardHeader className="pb-1 pr-8 relative">
+                <CardTitle className="text-base">{post.title}</CardTitle>
+                <p className="text-xs text-muted-foreground">{new Date(post.pubDate).toLocaleDateString()}</p>
+                <a 
+                  href={post.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                </a>
               </CardHeader>
-              <CardContent className="pb-2">
-                <p className="text-sm text-muted-foreground line-clamp-2">{post.description}</p>
+              <CardContent className="pb-3">
+                <CardDescription className="text-sm line-clamp-2">{post.description}</CardDescription>
               </CardContent>
-              <CardFooter>
-                <Button asChild variant="outline" size="sm">
-                  <a 
-                    href={post.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center"
-                  >
-                    <Link className="w-4 h-4 mr-2" />
-                    Read Article
-                  </a>
-                </Button>
-              </CardFooter>
             </Card>
           ))}
         </div>
