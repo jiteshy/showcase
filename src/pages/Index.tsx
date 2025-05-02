@@ -18,8 +18,8 @@ const Index: React.FC = () => {
         <div className="w-full">
           <Resume />
           <Projects />
-          <Contributions />
           <MediumPosts />
+          <Contributions />
           <Social />
         </div>
       </Layout>
@@ -38,8 +38,8 @@ const Index: React.FC = () => {
         <ScrollArea className="h-full">
           <div className="p-1">
             <Projects />
-            <Contributions />
             <MediumPosts />
+            <Contributions />
             <Social />
           </div>
         </ScrollArea>
