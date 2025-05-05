@@ -1,27 +1,39 @@
-
 import React from 'react';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { ExternalLink, Download } from 'lucide-react';
+
+const RESUME_URL = '/resume.pdf';
 
 export const Resume: React.FC = () => {
-  const isMobile = useIsMobile();
-  const resumeUrl = "https://drive.google.com/file/d/13OPNZITL5pTvHgU7NItZJWt1pb_2Mcxa/preview";
-  
   return (
-    <section className="h-full">
-      <div className="h-full">
-        <div className={`w-full ${isMobile ? 'h-[500px]' : 'h-screen'}`}>
-          <iframe
-            src={resumeUrl}
-            title="Resume"
-            className="w-full h-full"
-            style={{ 
-              scrollbarWidth: 'none', // Makes scrollbar transparent
-              msOverflowStyle: 'none' // For IE and Edge
-            }}
-            allow="autoplay"
-          />
-        </div>
+    <div className="h-full relative -ml-[5px] w-[calc(100%+10px)]">
+      {/* Top-right icons */}
+      <div className="absolute top-4 right-4 z-10 flex gap-3">
+        <a
+          href={RESUME_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Open in new tab"
+          className="p-2 rounded bg-gray-200 hover:bg-gray-300 transition"
+        >
+          <ExternalLink className="w-5 h-5 text-gray-600" />
+        </a>
+        <a
+          href={RESUME_URL}
+          download
+          title="Download PDF"
+          className="p-2 rounded bg-gray-200 hover:bg-gray-300 transition"
+        >
+          <Download className="w-5 h-5 text-gray-600" />
+        </a>
       </div>
-    </section>
+      {/* PDF Viewer */}
+      <div className="h-full w-full">
+        <iframe
+          src={`${RESUME_URL}#toolbar=0&navpanes=0`}
+          className="w-full h-full"
+          title="Resume PDF Viewer"
+        />
+      </div>
+    </div>
   );
 };

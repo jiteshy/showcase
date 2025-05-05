@@ -1,84 +1,67 @@
-
-import React, { useEffect, useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import React from 'react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/card';
 import { ExternalLink } from 'lucide-react';
-import { Skeleton } from '@/components/ui/skeleton';
 
-interface MediumPost {
+interface BlogPost {
   title: string;
   link: string;
-  pubDate: string;
-  description: string;
+  date: string;
 }
 
-export const MediumPosts: React.FC = () => {
-  const [posts, setPosts] = useState<MediumPost[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading Medium posts (in a real app, you'd fetch from Medium API)
-    const timer = setTimeout(() => {
-      setPosts([
-        {
-          title: "Mastering Microservices Architecture",
-          link: "https://medium.com/@jiteshy/mastering-microservices",
-          pubDate: "2023-04-15",
-          description: "A comprehensive guide to building scalable microservices architecture"
-        },
-        {
-          title: "The Future of DevOps in 2023",
-          link: "https://medium.com/@jiteshy/future-of-devops",
-          pubDate: "2023-03-22", 
-          description: "Exploring the evolving landscape of DevOps practices and tools"
-        }
-      ]);
-      setLoading(false);
-    }, 1000);
-    
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return (
-      <section className="section py-2">
-        <div className="container-custom">
-          <h2 className="text-lg font-bold mb-2">Recent Articles</h2>
-          <div className="grid grid-cols-2 gap-2">
-            <Skeleton className="w-full h-16" />
-            <Skeleton className="w-full h-16" />
-          </div>
-        </div>
-      </section>
-    );
+const posts: BlogPost[] = [
+  {
+    title: "Real App: The Same Prompt, 3 AI Coding Assistants, 1 Winner",
+    link: import.meta.env.VITE_MEDIUM_ARTICLE_1_URL,
+    date: "2024-01-01"
+  },
+  {
+    title: "From First Draft to Production-Ready App with Cursor",
+    link: import.meta.env.VITE_MEDIUM_ARTICLE_2_URL,
+    date: "2024-01-02"
   }
+];
 
+export const MediumPosts: React.FC = () => {
   return (
-    <section className="section py-2">
-      <div className="container-custom">
-        <h2 className="text-lg font-bold mb-2">Recent Articles</h2>
-        
-        <div className="grid grid-cols-2 gap-2">
+    <Card className="bg-white">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-4">
+        <div>Latest Blog Posts</div>
+          <a
+            href={
+              import.meta.env.VITE_MEDIUM_URL
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ExternalLink className="w-5 h-5 text-gray-600" />
+          </a>
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="flex overflow-x-auto gap-4 snap-x snap-mandatory">
           {posts.map((post, index) => (
-            <Card key={index} className="card-hover">
-              <CardHeader className="pb-1 pr-8 relative pt-3 px-3">
-                <CardTitle className="text-sm">{post.title}</CardTitle>
-                <p className="text-xs text-muted-foreground">{new Date(post.pubDate).toLocaleDateString()}</p>
-                <a 
-                  href={post.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="absolute top-3 right-3 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              </CardHeader>
-              <CardContent className="pb-2 pt-0 px-3">
-                <CardDescription className="text-xs line-clamp-2">{post.description}</CardDescription>
-              </CardContent>
-            </Card>
+            <a 
+              key={index} 
+              href={post.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group flex-1 snap-start bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-all duration-300"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex-1">
+                  <h3 className="text-lg font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-xs text-gray-600">
+                    Posted on {post.date}
+                  </p>
+                </div>
+              </div>
+            </a>
           ))}
         </div>
-      </div>
-    </section>
+      </CardContent>
+    </Card>
   );
 };

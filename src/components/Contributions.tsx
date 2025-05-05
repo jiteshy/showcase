@@ -1,48 +1,35 @@
-
-import React, { useEffect, useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Skeleton } from '@/components/ui/skeleton';
-import { useIsMobile } from '@/hooks/use-mobile';
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { ExternalLink } from "lucide-react";
 
 export const Contributions: React.FC = () => {
-  const [loading, setLoading] = useState(true);
-  const isMobile = useIsMobile();
-  
-  useEffect(() => {
-    // Simulating the loading of contributions
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-    
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <section className="section py-2" id="contributions">
-      <div className="container-custom">
-        <h2 className="text-lg font-bold mb-2">GitHub Contributions</h2>
-        
-        <Card>
-          <CardContent className="p-2">
-            {loading ? (
-              <Skeleton className="w-full h-24" />
-            ) : (
-              <div className="flex justify-center w-full">
-                <iframe 
-                  src="https://pages.codeadam.ca/github-contributions/jiteshy" 
-                  width="100%" 
-                  height="190" 
-                  frameBorder="0" 
-                  allowTransparency 
-                  id="iframe"
-                  title="GitHub Contributions"
-                  className="max-w-full"
-                />
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      </div>
-    </section>
+    <Card className="bg-white">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-4">
+          <div>GitHub Activity</div>
+          <a
+            href={
+              import.meta.env.VITE_GITHUB_URL
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ExternalLink className="w-5 h-5 text-gray-600" />
+          </a>
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="bg-white rounded-lg border border-gray-200 p-4">
+          <img
+            src={`https://ghchart.rshah.org/${
+              import.meta.env.VITE_GITHUB_USERNAME
+            }`}
+            alt="GitHub Contributions"
+            className="w-full h-auto rounded-lg"
+          />
+        </div>
+      </CardContent>
+    </Card>
   );
 };
