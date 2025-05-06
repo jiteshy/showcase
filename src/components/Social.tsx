@@ -40,7 +40,7 @@ export const Social: React.FC = () => {
               href={social.link}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group flex flex-1 md:flex-auto items-center justify-center gap-1 md:gap-2 px-2 py-0 md:px-3 md:py-1 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50`}
+              className={`group flex flex-1 md:flex-auto items-center justify-center gap-1 md:gap-2 px-2 py-0 md:px-3 md:py-1 border border-border rounded-lg transition-all duration-200 hover:bg-gray-50`}
               title={social.title}
             >
               <div className="p-1.5 rounded-md text-blue-600 transition-colors">

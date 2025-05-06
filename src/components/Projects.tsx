@@ -50,7 +50,7 @@ export const Projects: React.FC = () => {
           {projects.map((project, index) => (
             <div 
               key={index} 
-              className="group snap-start bg-white rounded-lg border border-gray-200 p-4 hover:bg-gray-50 hover:shadow-md transition-all duration-300"
+              className="group snap-start bg-white rounded-lg border border-border p-4 hover:bg-gray-50 hover:shadow-md transition-all duration-300"
             >
               <div className="flex flex-col h-full">
                 <div className="flex-1">
@@ -64,7 +64,7 @@ export const Projects: React.FC = () => {
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex} 
-                        className={`px-2 py-1 text-xs font-medium text-gray-500 border border-gray-200 rounded-full ${tagIndex === project.tags.length - 1 ? "bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent" : ""}`}
+                        className={`px-2 py-1 text-xs font-medium text-gray-500 border border-border rounded-full ${tagIndex === project.tags.length - 1 ? "bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent" : ""}`}
                       >
                         {tag}
                       </span>

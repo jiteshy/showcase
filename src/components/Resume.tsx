@@ -9,7 +9,7 @@ const RESUME_DOWNLOAD_URL = import.meta.env.VITE_RESUME_DOWNLOAD_URL;
 export const Resume: React.FC = () => {
   return (
     <Card className="bg-white pr-4 h-full">
-      <CardHeader>
+      <CardHeader className="pr-0">
         <CardTitle className="flex items-center gap-4 justify-between -mt-1">
           <div>Resume</div>
           <div className="flex gap-2">
@@ -34,7 +34,7 @@ export const Resume: React.FC = () => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="h-full rounded-lg overflow-hidden border border-gray-200 -mr-4">
+        <div className="h-full rounded-lg overflow-hidden border border-border -mr-4">
           {/* PDF Viewer */}
           <div className="h-full w-[calc(100%+1rem)]">
             <iframe

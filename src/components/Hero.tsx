@@ -2,8 +2,8 @@ import React from "react";
 
 export const Hero: React.FC = () => {
   return (
-    <section className="section pt-4 md:pt-8">
-      <div className="max-w-3xl mx-auto text-center animate-fade-in">
+    <section className="section pt-4 md:pt-8 relative overflow-hidden">
+      <div className="max-w-3xl mx-auto text-center animate-fade-in relative z-10">
         <div className="flex justify-center mb-6">
           <img
             src="/profile.jpg"

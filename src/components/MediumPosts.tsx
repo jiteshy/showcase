@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { ExternalLink } from 'lucide-react';
 
 interface BlogPost {
@@ -49,7 +49,7 @@ export const MediumPosts: React.FC = () => {
               href={post.link} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group snap-start bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md hover:bg-gray-50 transition-all duration-300"
+              className="group snap-start bg-white rounded-lg border border-border p-4 hover:shadow-md hover:bg-gray-50 transition-all duration-300"
             >
               <div className="flex flex-col h-full">
                 <div className="flex-1">

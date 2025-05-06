@@ -20,7 +20,7 @@ export const Contributions: React.FC = () => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="bg-white rounded-lg border border-gray-200 hover:bg-gray-50 p-4">
+        <div className="bg-white rounded-lg border border-border hover:bg-gray-50 p-4">
           <img
             src={`https://ghchart.rshah.org/${
               import.meta.env.VITE_GITHUB_USERNAME
