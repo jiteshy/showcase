@@ -1,53 +1,151 @@
 # Showcase
 
-A modern portfolio website built with React, TypeScript, and Tailwind CSS.
+A modern, responsive personal branding page built with React, TypeScript, Tailwind CSS and shadcn components.
 
 ## Features
 
-- Modern and clean design
-- Responsive layout
-- Dark mode support
-- Smooth animations
-- SEO friendly
-
-## Tech Stack
-
-- React
-- TypeScript
-- Tailwind CSS
-- Vite
-- React Router
-- React Query
+- Modern UI with Tailwind CSS
+- Fully responsive design
+- Smooth Animations
+- Easy customization through environment variables
 
 ## Getting Started
 
-1. Clone the repository
-2. Install dependencies:
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Fork this repository
+2. Clone your forked repository:
+   ```bash
+   git clone https://github.com/your-username/showcase.git
+   cd showcase
+   ```
+3. Install dependencies:
    ```bash
    npm install
+   # or
+   yarn install
    ```
-3. Start the development server:
+
+### Configuration
+
+1. Copy the example environment file:
    ```bash
-   npm run dev
+   cp .env.example .env
    ```
-4. Build for production:
-   ```bash
-   npm run build
+
+2. Update the `.env` file with your information:
+
+   #### Project Information
+   ```env
+   # Project 1
+   VITE_PROJECT_1_TITLE=Your Project Title
+   VITE_PROJECT_1_DESCRIPTION=Project description
+   VITE_PROJECT_1_GH_URL=GitHub repository URL
+   VITE_PROJECT_1_APP_URL=Live application URL
+   VITE_PROJECT_1_TAGS=Comma,Separated,Tags
+
+   # Project 2
+   VITE_PROJECT_2_TITLE=Your Second Project
+   VITE_PROJECT_2_DESCRIPTION=Second project description
+   VITE_PROJECT_2_GH_URL=Second project GitHub URL
+   VITE_PROJECT_2_APP_URL=Second project live URL
+   VITE_PROJECT_2_TAGS=Tag1,Tag2,Tag3
    ```
+
+   #### Articles
+   ```env
+   # Article 1
+   VITE_MEDIUM_ARTICLE_1_TITLE=Your Article Title
+   VITE_MEDIUM_ARTICLE_1_URL=Article URL
+   VITE_MEDIUM_ARTICLE_1_DATE=Publication Date
+
+   # Article 2
+   VITE_MEDIUM_ARTICLE_2_TITLE=Second Article Title
+   VITE_MEDIUM_ARTICLE_2_URL=Second Article URL
+   VITE_MEDIUM_ARTICLE_2_DATE=Publication Date
+   ```
+
+   #### Social Media & Resume
+   ```env
+   # Social Media
+   VITE_LINKEDIN_URL=Your LinkedIn Profile
+   VITE_GITHUB_URL=Your GitHub Profile
+   VITE_MEDIUM_URL=Your Medium Profile
+   VITE_GITHUB_USERNAME=Your GitHub Username
+
+   # Resume
+   VITE_RESUME_URL=Resume Preview URL e.g. Google drive url
+   VITE_RESUME_VIEW_URL=Resume View URL e.g. Google drive url
+   VITE_RESUME_DOWNLOAD_URL=Resume Download URL e.g. Google drive url
+   ```
+
+### Development
+
+Start the development server:
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+### Building for Production
+
+Build the project:
+```bash
+npm run build
+# or
+yarn build
+```
 
 ## Project Structure
 
 ```
-src/
-  ├── components/     # Reusable components
-  ├── pages/         # Page components
-  ├── hooks/         # Custom hooks
-  ├── utils/         # Utility functions
-  ├── types/         # TypeScript types
-  ├── styles/        # Global styles
-  └── assets/        # Static assets
+showcase/
+├── public/              # Static assets
+├── src/
+│   ├── components/      # Reusable components
+│   ├── lib/             # Utilities
+│   ├── pages/           # Routed pages in the app
+│   ├── App.tsx          # Main application component
+│   └── main.tsx         # Application entry point
+│   └── index.css        # Application global css
+├── .env.example         # Environment variables template
+├── index.html           # HTML template
+├── package.json         # Project dependencies
+├── tailwind.config.ts   # Tailwind CSS configuration
+└── vite.config.ts       # Vite configuration
 ```
+
+## Customization
+
+### Styling
+- The project uses Tailwind CSS for styling
+- Customize colors and theme in `tailwind.config.ts`
+- Modify the global styles in `src/index.css`
+
+### Components
+- Add or modify components in the `src/components` directory
+- Each section (Projects, Articles, etc.) has its own component
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-MIT
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Built with [Vite](https://vitejs.dev/)
+- Styled with [Tailwind CSS](https://tailwindcss.com/)
+- Icons from [Lucide](https://lucide.dev/)
