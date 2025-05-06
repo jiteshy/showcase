@@ -6,7 +6,7 @@ export const Contributions: React.FC = () => {
   return (
     <Card className="bg-white">
       <CardHeader>
-        <CardTitle className="flex items-center gap-4">
+        <CardTitle className="flex items-center justify-between gap-4 -mt-1">
           <div>GitHub Activity</div>
           <a
             href={
@@ -15,12 +15,12 @@ export const Contributions: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <ExternalLink className="w-5 h-5 text-gray-600" />
+            <ExternalLink className="w-4 h-4 text-gray-600" />
           </a>
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="bg-white rounded-lg border border-gray-200 p-4">
+        <div className="bg-white rounded-lg border border-gray-200 hover:bg-gray-50 p-4">
           <img
             src={`https://ghchart.rshah.org/${
               import.meta.env.VITE_GITHUB_USERNAME

@@ -1,12 +1,11 @@
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Linkedin, Github, BookOpen } from 'lucide-react';
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { Linkedin, Github, BookOpen } from "lucide-react";
 
 interface SocialLink {
   title: string;
   link: string;
   icon: React.ReactNode;
-  color: string;
 }
 
 const socialLinks: SocialLink[] = [
@@ -14,20 +13,17 @@ const socialLinks: SocialLink[] = [
     title: "LinkedIn",
     link: import.meta.env.VITE_LINKEDIN_URL,
     icon: <Linkedin className="w-5 h-5" />,
-    color: "hover:text-[#0A66C2]"
   },
   {
     title: "GitHub",
     link: import.meta.env.VITE_GITHUB_URL,
     icon: <Github className="w-5 h-5" />,
-    color: "hover:text-[#181717]"
   },
   {
     title: "Medium",
     link: import.meta.env.VITE_MEDIUM_URL,
     icon: <BookOpen className="w-5 h-5" />,
-    color: "hover:text-[#000000]"
-  }
+  },
 ];
 
 export const Social: React.FC = () => {
@@ -39,18 +35,18 @@ export const Social: React.FC = () => {
       <CardContent>
         <div className="flex items-center gap-4">
           {socialLinks.map((social, index) => (
-            <a 
-              key={index} 
-              href={social.link} 
-              target="_blank" 
+            <a
+              key={index}
+              href={social.link}
+              target="_blank"
               rel="noopener noreferrer"
-              className={`group flex items-center gap-2 px-3 py-1 border border-gray-200 rounded-lg transition-all duration-200 ${social.color} hover:bg-gray-50`}
+              className={`group flex flex-1 md:flex-auto items-center justify-center gap-1 md:gap-2 px-2 py-0 md:px-3 md:py-1 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50`}
               title={social.title}
             >
-              <div className="p-1.5 rounded-md transition-colors">
+              <div className="p-1.5 rounded-md text-blue-600 transition-colors">
                 {social.icon}
               </div>
-              <span className="text-sm font-medium text-gray-600 group-hover:text-gray-900 transition-colors">
+              <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent transition-colors">
                 {social.title}
               </span>
             </a>

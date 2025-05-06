@@ -8,24 +8,27 @@ interface BlogPost {
   date: string;
 }
 
+const getPostData = (index: number): BlogPost => {
+  const env = import.meta.env;
+  const baseKey = `VITE_MEDIUM_ARTICLE_${index + 1}`;
+  
+  return {
+    title: env[`${baseKey}_TITLE`] || `Blog Post ${index + 1}`,
+    link: env[`${baseKey}_URL`] || '#',
+    date: env[`${baseKey}_DATE`] || new Date().toISOString().split('T')[0]
+  };
+};
+
 const posts: BlogPost[] = [
-  {
-    title: "Real App: The Same Prompt, 3 AI Coding Assistants, 1 Winner",
-    link: import.meta.env.VITE_MEDIUM_ARTICLE_1_URL,
-    date: "2024-01-01"
-  },
-  {
-    title: "From First Draft to Production-Ready App with Cursor",
-    link: import.meta.env.VITE_MEDIUM_ARTICLE_2_URL,
-    date: "2024-01-02"
-  }
+  getPostData(0),
+  getPostData(1)
 ];
 
 export const MediumPosts: React.FC = () => {
   return (
     <Card className="bg-white">
       <CardHeader>
-        <CardTitle className="flex items-center gap-4">
+        <CardTitle className="flex items-center gap-4 justify-between -mt-1">
         <div>Latest Blog Posts</div>
           <a
             href={
@@ -34,19 +37,19 @@ export const MediumPosts: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <ExternalLink className="w-5 h-5 text-gray-600" />
+            <ExternalLink className="w-4 h-4 text-gray-600" />
           </a>
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="flex overflow-x-auto gap-4 snap-x snap-mandatory">
+        <div className="grid grid-cols-1 md:grid-cols-2 overflow-x-auto gap-4 snap-x snap-mandatory">
           {posts.map((post, index) => (
             <a 
               key={index} 
               href={post.link} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group flex-1 snap-start bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-all duration-300"
+              className="group snap-start bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md hover:bg-gray-50 transition-all duration-300"
             >
               <div className="flex flex-col h-full">
                 <div className="flex-1">
