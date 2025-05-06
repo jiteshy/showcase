@@ -4,11 +4,11 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/showcase/",
   server: {
     host: "::",
     port: 8080,
   },
-  base: "/showcase",
   plugins: [react()],
   resolve: {
     alias: {

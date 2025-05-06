@@ -93,14 +93,37 @@ npm run dev
 yarn dev
 ```
 
-### Building for Production
+The app will be available at `http://localhost:8080/showcase/`
 
-Build the project:
-```bash
-npm run build
-# or
-yarn build
-```
+### Deployment to GitHub Pages
+
+1. Make sure your repository is properly configured on GitHub:
+   - Go to your repository settings
+   - Navigate to "Pages" under "Code and automation"
+   - Select "gh-pages" branch as the source
+   - Save the changes
+
+2. Deploy your changes:
+   ```bash
+   npm run deploy
+   # or
+   yarn deploy
+   ```
+
+3. Your site will be available at:
+   ```
+   https://your-username.github.io/showcase/
+   ```
+
+   Replace `your-username` with your GitHub username.
+
+4. The deployment process:
+   - Builds your application
+   - Creates a `gh-pages` branch
+   - Pushes the built files to the `gh-pages` branch
+   - GitHub Pages automatically deploys the changes
+
+Note: It may take a few minutes for your changes to be visible on GitHub Pages after deployment.
 
 ## Project Structure
 

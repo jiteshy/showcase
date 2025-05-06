@@ -6,7 +6,7 @@ export const Hero: React.FC = () => {
       <div className="max-w-3xl mx-auto text-center animate-fade-in relative z-10">
         <div className="flex justify-center mb-6">
           <img
-            src="/profile.jpg"
+            src="profile.jpg"
             alt="Jitesh Yadav"
             className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl"
           />
