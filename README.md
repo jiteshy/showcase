@@ -123,7 +123,40 @@ The app will be available at `http://localhost:8080/showcase/`
    - Pushes the built files to the `gh-pages` branch
    - GitHub Pages automatically deploys the changes
 
-Note: It may take a few minutes for your changes to be visible on GitHub Pages after deployment.
+### Custom Domain Setup
+
+If you want to use a custom domain (e.g., yourdomain.com):
+
+1. Update the `base` in `vite.config.ts` to `"/"`:
+   ```typescript
+   export default defineConfig({
+     base: "/",
+     // ... other config
+   });
+   ```
+
+2. Remove the `basename` from `BrowserRouter` in `src/App.tsx`:
+   ```typescript
+   <BrowserRouter>
+     <Routes>
+       // ... your routes
+     </Routes>
+   </BrowserRouter>
+   ```
+
+3. Configure your custom domain in GitHub Pages:
+   - Go to repository settings
+   - Navigate to "Pages"
+   - Under "Custom domain", enter your domain
+   - Save the changes
+   - Add the required DNS records at your domain registrar
+
+4. Rebuild and redeploy:
+   ```bash
+   npm run deploy
+   ```
+
+Note: It may take a few minutes for your changes to be visible after deployment and DNS propagation.
 
 ## Project Structure
 
