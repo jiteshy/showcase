@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { ExternalLink } from "lucide-react";
 
 export const Contributions: React.FC = () => {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <Card className="bg-white">
       <CardHeader>
@@ -21,13 +23,28 @@ export const Contributions: React.FC = () => {
       </CardHeader>
       <CardContent>
         <div className="bg-white rounded-lg border border-border hover:bg-gray-50 p-4">
-          <img
-            src={`https://ghchart.rshah.org/${
-              import.meta.env.VITE_GITHUB_USERNAME
-            }`}
-            alt="GitHub Contributions"
-            className="w-full h-auto rounded-lg"
-          />
+          {!imageError ? (
+            <img
+              src={`https://ghchart.rshah.org/${
+                import.meta.env.VITE_GITHUB_USERNAME
+              }`}
+              alt="GitHub Contributions"
+              className="w-full h-auto rounded-lg"
+              onError={() => setImageError(true)}
+            />
+          ) : (
+            <div className="text-center py-8">
+              <p className="text-gray-600">Unable to load GitHub contributions chart.</p>
+              <a
+                href={import.meta.env.VITE_GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 mt-2 inline-block"
+              >
+                View GitHub Profile
+              </a>
+            </div>
+          )}
         </div>
       </CardContent>
     </Card>
