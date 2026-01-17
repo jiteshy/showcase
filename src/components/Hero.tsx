@@ -19,7 +19,7 @@ export const Hero: React.FC = () => {
         <p
           className="text-sm md:text-xl text-muted-foreground mb-2 md:mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
         >
-          Seasoned Software Engineer with 13+ years of experience
+          Seasoned Software Engineer with 14+ years of experience
         </p>
         <p className="text-xs md:text-base text-muted-foreground max-w-2xl mx-auto">
           Transforming complex problems into efficient solutions.

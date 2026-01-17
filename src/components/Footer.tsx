@@ -4,7 +4,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="py-3 border-t border-border">
       <p className="text-center text-xs text-blue-700">
-          Like this branding page?
+          Like this template?
           <a
             href="https://github.com/jiteshy/showcase"
             target="_blank"
