@@ -1,13 +1,14 @@
 # Showcase
 
-A modern, responsive personal branding page built with React, TypeScript, Tailwind CSS and shadcn components.
+A modern, responsive personal portfolio page built with React, TypeScript, and Tailwind CSS.
 
 ## Features
 
-- Modern UI with Tailwind CSS
-- Fully responsive design
-- Smooth Animations
+- Clean grayscale design with Inter font
+- Fully responsive — sidebar layout on desktop, stacked on mobile
+- Smooth fade-in animation
 - Easy customization through environment variables
+- Google Analytics support
 
 ## Getting Started
 
@@ -27,8 +28,6 @@ A modern, responsive personal branding page built with React, TypeScript, Tailwi
 3. Install dependencies:
    ```bash
    npm install
-   # or
-   yarn install
    ```
 
 ### Configuration
@@ -40,48 +39,44 @@ A modern, responsive personal branding page built with React, TypeScript, Tailwi
 
 2. Update the `.env` file with your information:
 
-   #### Project Information
+   #### Projects
    ```env
-   # Project 1
    VITE_PROJECT_1_TITLE=Your Project Title
    VITE_PROJECT_1_DESCRIPTION=Project description
    VITE_PROJECT_1_GH_URL=GitHub repository URL
-   VITE_PROJECT_1_APP_URL=Live application URL
+   VITE_PROJECT_1_APP_URL=Live application URL (optional)
    VITE_PROJECT_1_TAGS=Comma,Separated,Tags
 
-   # Project 2
    VITE_PROJECT_2_TITLE=Your Second Project
    VITE_PROJECT_2_DESCRIPTION=Second project description
    VITE_PROJECT_2_GH_URL=Second project GitHub URL
-   VITE_PROJECT_2_APP_URL=Second project live URL
+   VITE_PROJECT_2_APP_URL=Second project live URL (optional)
    VITE_PROJECT_2_TAGS=Tag1,Tag2,Tag3
    ```
 
-   #### Articles
+   #### Writing
    ```env
-   # Article 1
    VITE_MEDIUM_ARTICLE_1_TITLE=Your Article Title
    VITE_MEDIUM_ARTICLE_1_URL=Article URL
    VITE_MEDIUM_ARTICLE_1_DATE=Publication Date
 
-   # Article 2
    VITE_MEDIUM_ARTICLE_2_TITLE=Second Article Title
    VITE_MEDIUM_ARTICLE_2_URL=Second Article URL
    VITE_MEDIUM_ARTICLE_2_DATE=Publication Date
    ```
 
-   #### Social Media & Resume
+   #### Social Media
    ```env
-   # Social Media
-   VITE_LINKEDIN_URL=Your LinkedIn Profile
-   VITE_GITHUB_URL=Your GitHub Profile
-   VITE_MEDIUM_URL=Your Medium Profile
+   VITE_LINKEDIN_URL=Your LinkedIn Profile URL
+   VITE_GITHUB_URL=Your GitHub Profile URL
+   VITE_MEDIUM_URL=Your Medium Profile URL
    VITE_GITHUB_USERNAME=Your GitHub Username
+   VITE_GITHUB_REPOSITORIES_URL=Your GitHub Repositories URL
+   ```
 
-   # Resume
-   VITE_RESUME_URL=Resume Preview URL e.g. Google drive url
-   VITE_RESUME_VIEW_URL=Resume View URL e.g. Google drive url
-   VITE_RESUME_DOWNLOAD_URL=Resume Download URL e.g. Google drive url
+   #### Analytics
+   ```env
+   VITE_GA_MEASUREMENT_ID=Your Google Analytics Measurement ID
    ```
 
 ### Development
@@ -89,25 +84,17 @@ A modern, responsive personal branding page built with React, TypeScript, Tailwi
 Start the development server:
 ```bash
 npm run dev
-# or
-yarn dev
 ```
-
-The app will be available at `http://localhost:8080/showcase/`
 
 ### Deployment to GitHub Pages
 
-1. Make sure your repository is properly configured on GitHub:
-   - Go to your repository settings
-   - Navigate to "Pages" under "Code and automation"
-   - Select "gh-pages" branch as the source
-   - Save the changes
+1. Configure GitHub Pages in your repository settings:
+   - Navigate to Settings → Pages
+   - Select `gh-pages` branch as the source
 
-2. Deploy your changes:
+2. Deploy:
    ```bash
    npm run deploy
-   # or
-   yarn deploy
    ```
 
 3. Your site will be available at:
@@ -115,61 +102,35 @@ The app will be available at `http://localhost:8080/showcase/`
    https://your-username.github.io/showcase/
    ```
 
-   Replace `your-username` with your GitHub username.
-
-4. The deployment process:
-   - Builds your application
-   - Creates a `gh-pages` branch
-   - Pushes the built files to the `gh-pages` branch
-   - GitHub Pages automatically deploys the changes
-
 ### Custom Domain Setup
 
-If you want to use a custom domain (e.g., yourdomain.com):
-
-1. Update the `base` in `vite.config.ts` to `"/"`:
+1. Update `base` in `vite.config.ts` to `"/"`:
    ```typescript
    export default defineConfig({
      base: "/",
-     // ... other config
    });
    ```
 
-2. Remove the `basename` from `BrowserRouter` in `src/App.tsx`:
-   ```typescript
-   <BrowserRouter>
-     <Routes>
-       // ... your routes
-     </Routes>
-   </BrowserRouter>
-   ```
+2. Remove the `basename` from `BrowserRouter` in `src/App.tsx`.
 
-3. Configure your custom domain in GitHub Pages:
-   - Go to repository settings
-   - Navigate to "Pages"
-   - Under "Custom domain", enter your domain
-   - Save the changes
-   - Add the required DNS records at your domain registrar
+3. Configure your custom domain in GitHub Pages settings and add the required DNS records at your domain registrar.
 
-4. Rebuild and redeploy:
+4. Redeploy:
    ```bash
    npm run deploy
    ```
-
-Note: It may take a few minutes for your changes to be visible after deployment and DNS propagation.
 
 ## Project Structure
 
 ```
 showcase/
-├── public/              # Static assets
+├── public/              # Static assets (profile.jpg, favicon.svg)
 ├── src/
-│   ├── components/      # Reusable components
-│   ├── lib/             # Utilities
-│   ├── pages/           # Routed pages in the app
+│   ├── components/      # Page section components
+│   ├── pages/           # Routed pages
 │   ├── App.tsx          # Main application component
-│   └── main.tsx         # Application entry point
-│   └── index.css        # Application global css
+│   ├── main.tsx         # Application entry point
+│   └── index.css        # Global styles
 ├── .env.example         # Environment variables template
 ├── index.html           # HTML template
 ├── package.json         # Project dependencies
@@ -179,14 +140,10 @@ showcase/
 
 ## Customization
 
-### Styling
-- The project uses Tailwind CSS for styling
-- Customize colors and theme in `tailwind.config.ts`
-- Modify the global styles in `src/index.css`
-
-### Components
-- Add or modify components in the `src/components` directory
-- Each section (Projects, Articles, etc.) has its own component
+- **Content**: All text and URLs are configured via environment variables in `.env`
+- **Styling**: Tailwind CSS utility classes throughout — tweak colors/spacing directly in components
+- **Profile photo**: Replace `public/profile.jpg` with your own image
+- **Favicon**: Replace `public/favicon.svg` with your own icon
 
 ## Contributing
 

@@ -2,18 +2,18 @@ import React from 'react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="py-3 border-t border-border">
-      <p className="text-center text-xs text-blue-700">
-          Like this template?
-          <a
-            href="https://github.com/jiteshy/showcase"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:text-blue-700 ml-1"
-          >
-            Fork it on GitHub
-          </a>
-        </p>
+    <footer className="border-t border-zinc-100 px-8 lg:px-10 py-4">
+      <p className="text-center text-xs text-zinc-400">
+        Fork the template on{' '}
+        <a
+          href="https://github.com/jiteshy/showcase"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-zinc-700 underline underline-offset-2 hover:text-zinc-500 transition-colors"
+        >
+          GitHub
+        </a>
+      </p>
     </footer>
   );
 };

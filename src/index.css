@@ -3,46 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --border: 214.3 31.8% 91.4%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-  }
-}
-
-@layer base {
   body {
-    @apply bg-gradient-to-br from-indigo-100 via-purple-50 to-teal-50 text-foreground;
-  }
-}
-
-@layer components {
-  .container-custom {
-    @apply container min-h-screen p-4 mx-auto;
-  }
-  
-  .section {
-    @apply py-6 md:py-12;
-  }
-
-  .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
-  }
-}
-
-@layer utilities {
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    @apply bg-zinc-100 text-zinc-900;
+    font-family: 'Inter', sans-serif;
   }
 }

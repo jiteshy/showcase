@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { ExternalLink } from 'lucide-react';
 
 interface BlogPost {
@@ -11,7 +10,7 @@ interface BlogPost {
 const getPostData = (index: number): BlogPost => {
   const env = import.meta.env;
   const baseKey = `VITE_MEDIUM_ARTICLE_${index + 1}`;
-  
+
   return {
     title: env[`${baseKey}_TITLE`] || `Blog Post ${index + 1}`,
     link: env[`${baseKey}_URL`] || '#',
@@ -26,45 +25,40 @@ const posts: BlogPost[] = [
 
 export const MediumPosts: React.FC = () => {
   return (
-    <Card className="bg-white">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-4 justify-between -mt-1">
-        <div>Latest Blog Posts</div>
+    <section className="p-6 lg:p-8">
+      <div className="flex items-center gap-4 mb-7">
+        <span className="text-xs font-semibold uppercase tracking-widest text-zinc-400">
+          Writing
+        </span>
+        <div className="flex-1 h-px bg-zinc-100" />
+        <a
+          href={import.meta.env.VITE_MEDIUM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <ExternalLink className="w-3.5 h-3.5 text-zinc-400 hover:text-zinc-700 transition-colors" />
+        </a>
+      </div>
+
+      <div className="space-y-5">
+        {posts.map((post, index) => (
           <a
-            href={
-              import.meta.env.VITE_MEDIUM_URL
-            }
+            key={index}
+            href={post.link}
             target="_blank"
             rel="noopener noreferrer"
+            className="group flex items-start justify-between gap-4"
           >
-            <ExternalLink className="w-4 h-4 text-gray-600" />
+            <div>
+              <h3 className="font-semibold text-zinc-900 leading-snug group-hover:text-zinc-500 transition-colors">
+                {post.title}
+              </h3>
+              <p className="text-xs text-zinc-400 mt-1">{post.date}</p>
+            </div>
+            <ExternalLink className="w-3.5 h-3.5 text-zinc-300 group-hover:text-zinc-500 flex-shrink-0 mt-1 transition-colors" />
           </a>
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 overflow-x-auto gap-4 snap-x snap-mandatory">
-          {posts.map((post, index) => (
-            <a 
-              key={index} 
-              href={post.link} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="group snap-start bg-white rounded-lg border border-border p-4 hover:shadow-md hover:bg-gray-50 transition-all duration-300"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex-1">
-                  <h3 className="text-lg font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-xs text-gray-600">
-                    Posted on {post.date}
-                  </p>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+        ))}
+      </div>
+    </section>
   );
 };
